@@ -39,6 +39,7 @@ model.add(Dense(nb_classes))
 model.add(Activation('softmax'))
 '''
 # Simple model
+model = Sequential()
 model.add(Lambda(standardize,input_shape=(28,28,1)))
 model.add(Flatten())
 model.add(Dense(10, activation='softmax'))
