@@ -1,6 +1,6 @@
 from keras.models import Sequential
 from keras.utils import np_utils
-from keras.layers.core import Dense, Activation, Dropout
+from keras.layers.core import Dense, Activation, Dropout, Lambda
 
 import pandas as pd
 import numpy as np
@@ -26,7 +26,6 @@ X_test -= mean
 input_dim = X_train.shape[1]
 nb_classes = y_train.shape[1]
 
-'''
 # Here's a Deep Dumb MLP (DDMLP)
 model = Sequential()
 model.add(Dense(128, input_dim=input_dim))
@@ -37,12 +36,6 @@ model.add(Activation('relu'))
 model.add(Dropout(0.15))
 model.add(Dense(nb_classes))
 model.add(Activation('softmax'))
-'''
-# Simple model
-model = Sequential()
-model.add(Lambda(standardize,input_shape=(28,28,1)))
-model.add(Flatten())
-model.add(Dense(10, activation='softmax'))
 
 # we'll use categorical xent for the loss, and RMSprop as the optimizer
 model.compile(loss='categorical_crossentropy', optimizer='rmsprop')
