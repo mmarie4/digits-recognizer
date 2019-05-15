@@ -1,3 +1,0 @@
-- Avec Keras, on a les infos sur le loss automatiquement quand on fait model.fit
-- On cherche à minimiser le loss
-- Normalement, après chaque passage par une epoch, le loss devrait baisser comme le réseau est de plus en plus entrainé --> voir pk c'est pas toujours le cas ici
